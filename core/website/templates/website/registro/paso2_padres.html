@@ -1,0 +1,49 @@
+{% extends "website/registro/base_wizard.html" %}
+{% block wizard_form %}
+<form method="post" action="" class="form-grid">
+  {% csrf_token %}
+  <p class="form-section">Padre</p>
+  <div class="form-row">
+    <div class="form-field">
+      <label class="field-label" for="{{ form.padre_nombres.id_for_label }}">{{ form.padre_nombres.label }}</label>
+      {{ form.padre_nombres }}
+      {% if form.padre_nombres.errors %}<div class="field-error">{{ form.padre_nombres.errors }}</div>{% endif %}
+    </div>
+    <div class="form-field">
+      <label class="field-label" for="{{ form.padre_apellidos.id_for_label }}">{{ form.padre_apellidos.label }}</label>
+      {{ form.padre_apellidos }}
+      {% if form.padre_apellidos.errors %}<div class="field-error">{{ form.padre_apellidos.errors }}</div>{% endif %}
+    </div>
+  </div>
+  <div class="form-field">
+    <label class="field-label" for="{{ form.padre_celular.id_for_label }}">{{ form.padre_celular.label }}</label>
+    {{ form.padre_celular }}
+    {% if form.padre_celular.errors %}<div class="field-error">{{ form.padre_celular.errors }}</div>{% endif %}
+  </div>
+  <p class="form-section">Madre</p>
+  <div class="form-row">
+    <div class="form-field">
+      <label class="field-label" for="{{ form.madre_nombres.id_for_label }}">{{ form.madre_nombres.label }}</label>
+      {{ form.madre_nombres }}
+      {% if form.madre_nombres.errors %}<div class="field-error">{{ form.madre_nombres.errors }}</div>{% endif %}
+    </div>
+    <div class="form-field">
+      <label class="field-label" for="{{ form.madre_apellidos.id_for_label }}">{{ form.madre_apellidos.label }}</label>
+      {{ form.madre_apellidos }}
+      {% if form.madre_apellidos.errors %}<div class="field-error">{{ form.madre_apellidos.errors }}</div>{% endif %}
+    </div>
+  </div>
+  <div class="form-field">
+    <label class="field-label" for="{{ form.madre_celular.id_for_label }}">{{ form.madre_celular.label }}</label>
+    {{ form.madre_celular }}
+    {% if form.madre_celular.errors %}<div class="field-error">{{ form.madre_celular.errors }}</div>{% endif %}
+  </div>
+  {% if form.non_field_errors %}
+    <div class="field-error">{{ form.non_field_errors }}</div>
+  {% endif %}
+  <div class="wizard-actions">
+    <a class="btn-secondary" href="{% url 'sin_limites_registro' %}">Atrás</a>
+    <button type="submit">Siguiente</button>
+  </div>
+</form>
+{% endblock %}

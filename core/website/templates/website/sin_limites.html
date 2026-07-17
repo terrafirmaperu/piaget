@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Sin limites · jean piaget IA{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h1>Sin limites</h1>
+  <p class="lead">
+    Hola,
+    {% if inscrito %}
+      {{ inscrito.nombre_completo }}
+    {% else %}
+      {{ request.user.get_full_name|default:request.user.username }}
+    {% endif %}.
+  </p>
+  <p>Tu inscripción está guardada. Aquí irá la experiencia de aprendizaje.</p>
+  <p><a class="btn" href="{% url 'home' %}">Volver al inicio</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Inicio · jean piaget IA{% endblock %}
+{% block content %}
+<section class="home-cover">
+  <div class="home-cover__media">
+    <img
+      src="{% static 'img/website/portada.jpg' %}"
+      alt="jean piaget IA"
+      class="home-cover__img"
+    >
+  </div>
+  <div class="home-cover__veil"></div>
+  <div class="home-cover__content">
+    <h1 class="home-cover__title">
+      <span class="home-cover__name">jean piaget</span>
+      <span class="home-cover__ia">IA</span>
+    </h1>
+    <div class="home-cover__actions">
+      <a class="btn" href="{% url 'sin_limites' %}">Sin limites</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

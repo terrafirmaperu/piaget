@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title %}Ingresar · Control · jean piaget IA{% endblock %}
+{% block content %}
+<div class="card">
+  <h2 class="login-title">
+    <svg class="nav-icon login-user-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.25c-3.6 0-6.75 1.8-6.75 4.05V20h13.5v-1.7c0-2.25-3.15-4.05-6.75-4.05Z"/>
+    </svg>
+    Ingresar
+  </h2>
+  <p class="login-hint">Acceso al sistema de control</p>
+  <form method="post" action="">
+    {% csrf_token %}
+    {% for field in form %}
+      {{ field|add_class:'form-control' }}
+      {% if field.errors %}<div style="color:#f88;font-size:0.85rem;">{{ field.errors }}</div>{% endif %}
+    {% endfor %}
+    {% if form.non_field_errors %}
+      <div style="color:#f88;font-size:0.85rem;margin-bottom:0.5rem;">{{ form.non_field_errors }}</div>
+    {% endif %}
+    <button type="submit">Entrar al panel</button>
+  </form>
+  <p style="text-align:center;margin-top:1rem;font-size:0.9rem;">
+    <a href="{% url 'reset_password' %}" style="color:var(--accent);">¿Olvidó su contraseña?</a>
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Sin limites · Ingresar{% endblock %}
+{% block content %}
+<section class="registro-split">
+  <aside class="registro-split__media">
+    <img
+      src="{% static 'img/website/niño.jpg' %}"
+      alt="Sin limites"
+      class="registro-split__img"
+      onerror="this.onerror=null;this.src='{% static 'img/website/nino.jpg' %}';"
+    >
+    <div class="registro-split__caption">
+      <strong>Sin limites</strong>
+      <span>jean piaget IA</span>
+    </div>
+  </aside>
+
+  <div class="registro-split__panel">
+    <h2 class="login-title">Sin limites</h2>
+    <p class="login-hint">Ingresa con tu usuario y contraseña</p>
+    <div class="registro-split__form">
+      <form method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+          <label class="field-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}<div class="field-error">{{ field.errors }}</div>{% endif %}
+        {% endfor %}
+        {% if form.non_field_errors %}
+          <div class="field-error">{{ form.non_field_errors }}</div>
+        {% endif %}
+        <button type="submit">Entrar</button>
+      </form>
+      <p class="form-footer">
+        ¿No tienes cuenta?
+        <a href="{% url 'sin_limites_registro' %}">Crear cuenta</a>
+      </p>
+      <p class="form-footer">
+        <a href="{% url 'home' %}">Volver al inicio</a>
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

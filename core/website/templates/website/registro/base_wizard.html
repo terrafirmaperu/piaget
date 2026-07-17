@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }} · Sin limites{% endblock %}
+{% block content %}
+<section class="registro-split">
+  <aside class="registro-split__media">
+    <img
+      src="{% static 'img/website/niño.jpg' %}"
+      alt="Sin limites"
+      class="registro-split__img"
+      onerror="this.onerror=null;this.src='{% static 'img/website/nino.jpg' %}';"
+    >
+    <div class="registro-split__caption">
+      <strong>Sin limites</strong>
+      <span>jean piaget IA</span>
+    </div>
+  </aside>
+
+  <div class="registro-split__panel">
+    <div class="wizard-steps">
+      <span class="wizard-step {% if step == 1 %}is-active{% elif step > 1 %}is-done{% endif %}">1. Personal</span>
+      <span class="wizard-step {% if step == 2 %}is-active{% elif step > 2 %}is-done{% endif %}">2. Padres</span>
+      <span class="wizard-step {% if step == 3 %}is-active{% endif %}">3. Acceso</span>
+    </div>
+    <h2 class="login-title">{{ title }}</h2>
+    <p class="login-hint">Paso {{ step }} de {{ total_steps }}</p>
+    <div class="registro-split__form">
+      {% block wizard_form %}{% endblock %}
+    </div>
+  </div>
+</section>
+{% endblock %}

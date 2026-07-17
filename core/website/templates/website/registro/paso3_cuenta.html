@@ -1,0 +1,18 @@
+{% extends "website/registro/base_wizard.html" %}
+{% block wizard_form %}
+<form method="post" action="">
+  {% csrf_token %}
+  {% for field in form %}
+    <label class="field-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+    {{ field }}
+    {% if field.errors %}<div class="field-error">{{ field.errors }}</div>{% endif %}
+  {% endfor %}
+  {% if form.non_field_errors %}
+    <div class="field-error">{{ form.non_field_errors }}</div>
+  {% endif %}
+  <div class="wizard-actions">
+    <a class="btn-secondary" href="{% url 'sin_limites_registro_padres' %}">Atrás</a>
+    <button type="submit">Guardar inscripción</button>
+  </div>
+</form>
+{% endblock %}

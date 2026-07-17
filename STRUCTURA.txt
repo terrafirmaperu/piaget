@@ -1,0 +1,34 @@
+Proyecto jean piaget IA — estructura Factora (sin CRM)
+======================================================
+
+Roles:
+  Usuarios (control)  → Neo y evaluadores (/login/ → /dashboard/)
+  Inscritos           → registro Sin limites (tabla user_inscrito)
+
+Raíz (junto a manage.py):
+  config/          settings, urls, wsgi, db
+  core/            aplicaciones de negocio
+  templates/       plantillas globales (base.html)
+  static/          CSS/JS/imágenes → static/img/website/
+  media/           subidas (runtime)
+  db/              SQLite (piayet.sqlite3)
+
+Apps:
+  core.user        User (control) + Inscrito
+  core.login       Login control → /login/
+  core.dashboard   Panel + /dashboard/inscritos/
+  core.website     Portada + registro Sin limites
+  core.frm / scm   Reservados
+
+URLs:
+  /                         Web pública
+  /sin-limites/registro/    Inscripción 3 pasos (guarda)
+  /login/                   Solo control
+  /dashboard/inscritos/     Listado inscritos
+
+Arranque:
+  python manage.py migrate
+  python manage.py ensure_neo
+  python manage.py runserver
+
+Control: Neo / Enyaeslamejor12 → /login/

@@ -1,0 +1,74 @@
+{% extends "website/registro/base_wizard.html" %}
+{% block wizard_form %}
+<form method="post" action="" id="frm-personal" class="form-grid">
+  {% csrf_token %}
+  <div class="form-row">
+    <div class="form-field">
+      <label class="field-label" for="{{ form.nombres.id_for_label }}">{{ form.nombres.label }}</label>
+      {{ form.nombres }}
+      {% if form.nombres.errors %}<div class="field-error">{{ form.nombres.errors }}</div>{% endif %}
+    </div>
+    <div class="form-field">
+      <label class="field-label" for="{{ form.apellidos.id_for_label }}">{{ form.apellidos.label }}</label>
+      {{ form.apellidos }}
+      {% if form.apellidos.errors %}<div class="field-error">{{ form.apellidos.errors }}</div>{% endif %}
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-field">
+      <label class="field-label" for="{{ form.celular.id_for_label }}">{{ form.celular.label }}</label>
+      {{ form.celular }}
+      {% if form.celular.errors %}<div class="field-error">{{ form.celular.errors }}</div>{% endif %}
+    </div>
+    <div class="form-field">
+      <label class="field-label" for="{{ form.lugar_nacimiento.id_for_label }}">{{ form.lugar_nacimiento.label }}</label>
+      {{ form.lugar_nacimiento }}
+      {% if form.lugar_nacimiento.errors %}<div class="field-error">{{ form.lugar_nacimiento.errors }}</div>{% endif %}
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-field">
+      <label class="field-label" for="{{ form.fecha_nacimiento.id_for_label }}">{{ form.fecha_nacimiento.label }}</label>
+      {{ form.fecha_nacimiento }}
+      {% if form.fecha_nacimiento.errors %}<div class="field-error">{{ form.fecha_nacimiento.errors }}</div>{% endif %}
+    </div>
+    <div class="form-field">
+      <label class="field-label" for="{{ form.edad.id_for_label }}">{{ form.edad.label }}</label>
+      {{ form.edad }}
+      {% if form.edad.errors %}<div class="field-error">{{ form.edad.errors }}</div>{% endif %}
+    </div>
+  </div>
+  <div class="form-field">
+    <label class="field-label" for="{{ form.genero.id_for_label }}">{{ form.genero.label }}</label>
+    {{ form.genero }}
+    {% if form.genero.errors %}<div class="field-error">{{ form.genero.errors }}</div>{% endif %}
+  </div>
+  {% if form.non_field_errors %}
+    <div class="field-error">{{ form.non_field_errors }}</div>
+  {% endif %}
+  <button type="submit">Siguiente</button>
+</form>
+<p class="form-footer">
+  ¿Ya tienes cuenta?
+  <a href="{% url 'sin_limites_login' %}">Ingresar con usuario y contraseña</a>
+</p>
+<script>
+(function () {
+  var fecha = document.getElementById('id_fecha_nacimiento');
+  var edad = document.getElementById('id_edad');
+  if (!fecha || !edad) return;
+  function calcEdad() {
+    if (!fecha.value) return;
+    var d = new Date(fecha.value + 'T00:00:00');
+    if (isNaN(d.getTime())) return;
+    var hoy = new Date();
+    var years = hoy.getFullYear() - d.getFullYear();
+    var m = hoy.getMonth() - d.getMonth();
+    if (m < 0 || (m === 0 && hoy.getDate() < d.getDate())) years--;
+    if (years >= 0 && years <= 100) edad.value = years;
+  }
+  fecha.addEventListener('change', calcEdad);
+  calcEdad();
+})();
+</script>
+{% endblock %}

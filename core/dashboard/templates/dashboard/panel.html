@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Panel de control · jean piaget IA{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h1>Panel de control</h1>
+  <p class="lead">Hola, {{ request.user.get_full_name|default:request.user.username }}.</p>
+  <p>Sistema de control — usuarios que evalúan e inscripciones de <strong>Sin limites</strong>.</p>
+
+  <div class="dash-stats">
+    <a class="dash-stat" href="{% url 'inscritos_list' %}">
+      <span class="dash-stat__num">{{ total_inscritos }}</span>
+      <span class="dash-stat__label">Inscritos</span>
+    </a>
+  </div>
+
+  <h2 class="dash-section-title">Inscritos recientes</h2>
+  {% if inscritos_recientes %}
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Género</th>
+          <th>Celular</th>
+          <th>Acceso</th>
+          <th>Inscrito el</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in inscritos_recientes %}
+        <tr>
+          <td>{{ i.nombre_completo }}</td>
+          <td>{{ i.edad }}</td>
+          <td>{{ i.get_genero_display }}</td>
+          <td>{{ i.celular }}</td>
+          <td>{{ i.user.username }}</td>
+          <td>{{ i.created_at|date:"d/m/Y H:i" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p><a class="btn" href="{% url 'inscritos_list' %}">Ver todos los inscritos</a></p>
+  {% else %}
+  <p class="lead">Aún no hay inscritos. Cuando completen el registro de Sin limites aparecerán aquí.</p>
+  {% endif %}
+
+  <ul class="dash-links">
+    <li><a href="/admin/user/inscrito/">Administrar inscritos</a></li>
+    <li><a href="/admin/user/user/">Usuarios de control</a></li>
+    <li><a href="{% url 'home' %}">Ver sitio público</a></li>
+  </ul>
+</div>
+{% endblock %}

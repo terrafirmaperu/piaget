@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}jean piaget IA{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a class="brand" href="{% url 'home' %}">
+          <img src="{% static 'img/logo-jean-piaget-ia.png' %}" alt="" class="brand-logo" onerror="this.style.display='none'">
+          <span class="brand-text">jean piaget <em>IA</em></span>
+        </a>
+        {% if request.user.is_authenticated and request.user.es_inscrito %}
+          <span class="header-user" title="Usuario de acceso">
+            <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.25c-3.6 0-6.75 1.8-6.75 4.05V20h13.5v-1.7c0-2.25-3.15-4.05-6.75-4.05Z"/>
+            </svg>
+            {{ request.user.username }}
+          </span>
+          <a class="header-sin-limites" href="{% url 'sin_limites' %}">Sin limites</a>
+        {% endif %}
+      </div>
+      <nav>
+        <a href="{% url 'home' %}">Inicio</a>
+        {% if request.user.is_authenticated %}
+          {% if request.user.es_control %}
+            <a href="{% url 'dashboard' %}" class="nav-control">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.25c-3.6 0-6.75 1.8-6.75 4.05V20h13.5v-1.7c0-2.25-3.15-4.05-6.75-4.05Z"/>
+              </svg>
+              Panel
+            </a>
+          {% endif %}
+          <a href="{% url 'logout' %}">Salir</a>
+        {% else %}
+          <a href="{% url 'login' %}" class="nav-control" title="Acceso al sistema de control">
+            <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.25c-3.6 0-6.75 1.8-6.75 4.05V20h13.5v-1.7c0-2.25-3.15-4.05-6.75-4.05Z"/>
+            </svg>
+            Ingresar
+          </a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <small>&copy; {% now "Y" %} jean piaget IA</small>
+    </div>
+  </footer>
+</body>
+</html>
