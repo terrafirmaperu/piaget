@@ -20,8 +20,11 @@ permisos.txt
 migrate_log.txt
 push_status.txt
 push_*.txt
+deploy_status.txt
 *.log
 _push_github.py
+_deploy_droplet.py
+_push_and_deploy.py
 
 # IDE / OS
 .idea/

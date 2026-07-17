@@ -1,0 +1,13 @@
+# Ejecutar deploy (PowerShell)
+#
+# 1) Sube cambios + despliega en el droplet:
+#    cd C:\Users\ASUS\Desktop\sistemas\piayetIa
+#    C:\Users\ASUS\Envs\Neo\Scripts\python.exe -m pip install paramiko
+#    C:\Users\ASUS\Envs\Neo\Scripts\python.exe _push_and_deploy.py
+#
+# 2) Abrir:
+#    http://67.205.138.3/
+#    http://67.205.138.3/login/     (Neo / Enyaeslamejor12)
+#    http://67.205.138.3/sin-limites/
+#
+# Secretos locales: .env.deploy (no va a Git)

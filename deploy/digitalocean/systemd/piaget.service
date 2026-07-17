@@ -1,0 +1,22 @@
+[Unit]
+Description=jean piaget IA gunicorn
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/piaget/app
+EnvironmentFile=/var/www/piaget/app/.env
+RuntimeDirectory=piaget
+ExecStart=/var/www/piaget/app/venv/bin/gunicorn \
+    --workers 2 \
+    --bind unix:/run/piaget/gunicorn.sock \
+    --timeout 120 \
+    --access-logfile /var/www/piaget/app/logs/gunicorn-access.log \
+    --error-logfile /var/www/piaget/app/logs/gunicorn-error.log \
+    config.wsgi:application
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
