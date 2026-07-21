@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db import transaction
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -14,15 +15,120 @@ from core.website.forms import (
     DatosPersonalesForm,
     SinLimitesLoginForm,
 )
+from core.website.i18n_home import (
+    DEMO_OPTION_SLUGS,
+    HOME_LANGS,
+    get_demo_options,
+    get_home_texts,
+    normalize_home_lang,
+)
 
 SESSION_PERSONAL = 'sin_limites_personal'
 SESSION_PADRES = 'sin_limites_padres'
+SESSION_HOME_LANG = 'home_lang'
+
+
+class InscritoRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
+    """Solo inscritos (cuenta Sin limites)."""
+
+    def test_func(self):
+        user = self.request.user
+        return user.is_authenticated and getattr(user, 'es_inscrito', False)
+
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
+            return HttpResponseRedirect(reverse('sin_limites_login'))
+        return HttpResponseRedirect('/sin-limites/ingresar/')
+
+
+class CuentaLogrosView(InscritoRequiredMixin, TemplateView):
+    template_name = 'website/cuenta_logros.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['inscrito'] = getattr(self.request.user, 'inscrito', None)
+        return context
+
+
+class CuentaProgresoView(InscritoRequiredMixin, TemplateView):
+    template_name = 'website/cuenta_progreso.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['inscrito'] = getattr(self.request.user, 'inscrito', None)
+        return context
+
+
+class CuentaOpcionesView(InscritoRequiredMixin, TemplateView):
+    template_name = 'website/cuenta_opciones.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['inscrito'] = getattr(self.request.user, 'inscrito', None)
+        return context
 
 
 class HomeView(TemplateView):
-    """Web pública — portada jean piaget IA."""
+    """Web pública — portada jean piaget IA (con selector de idioma)."""
 
     template_name = 'website/home.html'
+
+    def get(self, request, *args, **kwargs):
+        try:
+            from core.website.ensure_assets import ensure_alumna_image
+            ensure_alumna_image()
+        except Exception:
+            pass
+        lang = request.GET.get('lang')
+        if lang:
+            request.session[SESSION_HOME_LANG] = normalize_home_lang(lang)
+            return HttpResponseRedirect('/?portada=1')
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        lang = normalize_home_lang(self.request.session.get(SESSION_HOME_LANG))
+        context['home_lang'] = lang
+        context['home_langs'] = HOME_LANGS
+        context['t'] = get_home_texts(lang)
+        return context
+
+
+class DemoOpcionesView(TemplateView):
+    """Página Demo: ¿Qué aprenderemos hoy, invitado?"""
+
+    template_name = 'website/demo_opciones.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        lang = normalize_home_lang(self.request.session.get(SESSION_HOME_LANG))
+        context['home_lang'] = lang
+        context['t'] = get_home_texts(lang)
+        context['demo_options'] = get_demo_options(lang)
+        return context
+
+
+class DemoMateriaView(TemplateView):
+    """Placeholder por materia elegida en Demo."""
+
+    template_name = 'website/demo_materia.html'
+
+    def get(self, request, *args, **kwargs):
+        slug = kwargs.get('slug', '')
+        if slug not in DEMO_OPTION_SLUGS:
+            return HttpResponseRedirect(reverse('demo_opciones'))
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        lang = normalize_home_lang(self.request.session.get(SESSION_HOME_LANG))
+        t = get_home_texts(lang)
+        slug = self.kwargs.get('slug')
+        options = {o['slug']: o for o in get_demo_options(lang)}
+        context['home_lang'] = lang
+        context['t'] = t
+        context['materia'] = options.get(slug, {'slug': slug, 'label': slug})
+        return context
 
 
 class SinLimitesView(View):

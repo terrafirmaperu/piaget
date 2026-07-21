@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ materia.label }} · Demo{% endblock %}
+{% block content %}
+<section class="container py-4 demo-materia">
+  <h1>{{ materia.label }}</h1>
+  <p class="lead">{{ t.demo_coming }}</p>
+  <p>
+    <a class="btn" href="/demo/">{{ t.demo_back_options }}</a>
+  </p>
+</section>
+{% endblock %}

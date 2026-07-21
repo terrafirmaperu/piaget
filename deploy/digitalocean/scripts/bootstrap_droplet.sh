@@ -9,7 +9,7 @@ APP_DIR="${APP_DIR:-${APP_ROOT}/app}"
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get update
-apt-get install -y python3 python3-venv python3-pip nginx git curl
+apt-get install -y python3 python3-venv python3-pip python3-setuptools nginx git curl
 
 mkdir -p "$APP_ROOT" "$APP_DIR" "${APP_DIR}/logs" "${APP_DIR}/media" "${APP_DIR}/db"
 chown -R "${APP_USER}:${APP_USER}" "$APP_ROOT"
@@ -21,7 +21,7 @@ fi
 if [ -f "${APP_DIR}/requirements.txt" ]; then
   sudo -u "$APP_USER" bash -c "
     source '${APP_DIR}/venv/bin/activate'
-    pip install --upgrade pip
+    pip install --upgrade pip setuptools wheel
     pip install -r '${APP_DIR}/requirements.txt'
   "
 fi

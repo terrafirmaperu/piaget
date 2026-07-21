@@ -1,8 +1,62 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Inicio · jean piaget IA{% endblock %}
+{% block title %}{{ t.page_title }}{% endblock %}
+{% block html_lang %}{{ home_lang }}{% endblock %}
+{% block extra_head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+{% endblock %}
 {% block content %}
-<section class="home-cover">
+{# —— Modal 1: Bienvenida —— #}
+<div class="welcome-splash" id="welcome-splash" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+  <div class="welcome-splash__bg" aria-hidden="true"></div>
+  <div class="welcome-splash__modal">
+    <h1 class="welcome-3d" id="welcome-title">
+      <span class="welcome-3d__word">{{ t.welcome }}</span>
+    </h1>
+    <p class="welcome-3d__brand">
+      <span class="welcome-3d__to">{{ t.welcome_to }}</span>
+      <span class="welcome-3d__brand-name">Piaget</span>
+      <span class="welcome-3d__brand-ia">IA</span>
+    </p>
+    <div class="welcome-splash__media">
+      <img
+        src="{% static 'img/website/inicio.png' %}"
+        alt="Piaget IA"
+        class="welcome-splash__img"
+      >
+    </div>
+    <button type="button" class="welcome-splash__btn" id="welcome-continue">
+      {{ t.welcome_continue }}
+    </button>
+  </div>
+</div>
+
+{# —— Modal 2: Tengo cuenta / Demo —— #}
+<div class="account-splash" id="account-splash" role="dialog" aria-modal="true" aria-labelledby="account-title" hidden>
+  <div class="account-splash__bg" aria-hidden="true"></div>
+  <div class="account-splash__modal">
+    <div class="account-splash__figure">
+      <img
+        src="{% static 'img/website/estudiante.png' %}"
+        alt="Estudiante huancavelicana"
+        class="account-splash__img"
+      >
+    </div>
+    <div class="account-splash__actions">
+      <h2 class="account-splash__title" id="account-title">{{ t.account_title }}</h2>
+      <a class="account-splash__btn account-splash__btn--account" href="{% url 'sin_limites_login' %}">
+        {{ t.have_account_btn }}
+      </a>
+      <a class="account-splash__btn account-splash__btn--demo" href="/demo/">
+        {{ t.demo_btn }}
+      </a>
+    </div>
+  </div>
+</div>
+
+<section class="home-cover is-behind-welcome" id="home-cover">
   <div class="home-cover__media">
     <img
       src="{% static 'img/website/portada.jpg' %}"
@@ -11,14 +65,108 @@
     >
   </div>
   <div class="home-cover__veil"></div>
+
+  <div class="home-lang" role="group" aria-label="{{ t.lang_label }}">
+    <p class="home-lang__label">{{ t.lang_label }}</p>
+    <div class="home-lang__options">
+      {% for code, name in home_langs %}
+        <a
+          class="home-lang__btn{% if code == home_lang %} is-active{% endif %}"
+          href="/?lang={{ code }}&portada=1"
+          hreflang="{{ code }}"
+          {% if code == home_lang %}aria-current="true"{% endif %}
+        >{{ name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
   <div class="home-cover__content">
     <h1 class="home-cover__title">
       <span class="home-cover__name">jean piaget</span>
       <span class="home-cover__ia">IA</span>
     </h1>
-    <div class="home-cover__actions">
-      <a class="btn" href="{% url 'sin_limites' %}">Sin limites</a>
+    <div class="home-cover__actions" id="sin-limites-gate">
+      {% if request.user.is_authenticated and request.user.es_inscrito %}
+        <a class="btn" href="{% url 'sin_limites' %}">{{ t.cta }}</a>
+      {% else %}
+        <button type="button" class="btn home-cover__trigger" id="sin-limites-btn" aria-expanded="false" aria-controls="sin-limites-choice">
+          {{ t.cta }}
+        </button>
+        <div class="home-choice" id="sin-limites-choice" hidden>
+          <p class="home-choice__question">{{ t.have_account }}</p>
+          <div class="home-choice__options">
+            <a class="btn home-choice__yes" href="{% url 'sin_limites_login' %}">{{ t.yes }}</a>
+            <a class="btn home-choice__no" href="{% url 'sin_limites_registro' %}">{{ t.no }}</a>
+            <a class="btn home-choice__demo" href="/demo/">{{ t.demo_btn }}</a>
+          </div>
+          <p class="home-choice__hint">
+            <span>{{ t.hint_yes }}</span>
+            <span>{{ t.hint_no }}</span>
+            <span>{{ t.hint_demo }}</span>
+          </p>
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
+{% endblock %}
+{% block extra_js %}
+<script>
+(function () {
+  var splash = document.getElementById('welcome-splash');
+  var account = document.getElementById('account-splash');
+  var cover = document.getElementById('home-cover');
+  var continueBtn = document.getElementById('welcome-continue');
+  var params = new URLSearchParams(window.location.search);
+  var goPortada = params.get('portada') === '1';
+
+  function showPortada() {
+    document.body.classList.remove('welcome-open');
+    if (cover) cover.classList.remove('is-behind-welcome');
+    if (splash) splash.setAttribute('hidden', '');
+    if (account) {
+      account.setAttribute('hidden', '');
+      account.classList.remove('is-visible', 'is-leaving');
+    }
+  }
+
+  function showAccountModal() {
+    if (splash) {
+      splash.classList.add('is-leaving');
+      setTimeout(function () {
+        splash.setAttribute('hidden', '');
+        splash.classList.remove('is-leaving');
+      }, 420);
+    }
+    if (account) {
+      account.removeAttribute('hidden');
+      account.classList.add('is-visible');
+    }
+  }
+
+  if (goPortada) {
+    showPortada();
+  } else {
+    document.body.classList.add('welcome-open');
+    if (continueBtn) continueBtn.addEventListener('click', showAccountModal);
+  }
+
+  var btn = document.getElementById('sin-limites-btn');
+  var panel = document.getElementById('sin-limites-choice');
+  if (btn && panel) {
+    btn.addEventListener('click', function () {
+      var open = panel.hasAttribute('hidden');
+      if (open) {
+        panel.removeAttribute('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.classList.add('is-open');
+      } else {
+        panel.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.classList.remove('is-open');
+      }
+    });
+  }
+})();
+</script>
 {% endblock %}

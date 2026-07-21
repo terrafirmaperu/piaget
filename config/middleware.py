@@ -38,3 +38,7 @@ class EnsureDatabaseMiddleware:
             call_command('ensure_neo', verbosity=0)
         except Exception:
             pass
+        try:
+            call_command('ensure_alumno', verbosity=0)
+        except Exception:
+            pass

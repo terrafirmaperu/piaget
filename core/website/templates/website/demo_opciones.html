@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ t.demo_page_title }}{% endblock %}
+{% block html_lang %}{{ home_lang }}{% endblock %}
+{% block extra_head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<section class="demo-options">
+  <div class="demo-options__header">
+    <h1 class="demo-options__title">{{ t.demo_heading }}</h1>
+    <p class="demo-options__sub">{{ t.demo_sub }}</p>
+  </div>
+
+  <div class="demo-options__board" role="navigation" aria-label="{{ t.demo_heading }}">
+    <img
+      src="{% static 'img/website/opciones.jpg' %}"
+      alt=""
+      class="demo-options__img"
+    >
+    {% for opt in demo_options %}
+      <a
+        class="demo-options__item demo-options__item--{{ opt.slug }}"
+        href="/demo/{{ opt.slug }}/"
+        data-label="{{ opt.label }}"
+        aria-label="{{ opt.label }}"
+      ></a>
+    {% endfor %}
+  </div>
+
+  <p class="demo-options__back">
+    <a href="/?portada=1">{{ t.demo_back }}</a>
+  </p>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script>
+(function () {
+  var colors = ['#ff4d6d', '#ff9f1c', '#ffd60a', '#2ec4b6', '#4cc9f0', '#b5179e', '#80ed99', '#4895ef'];
+  document.querySelectorAll('.demo-options__item[data-label]').forEach(function (link) {
+    var label = link.getAttribute('data-label') || '';
+    var wrap = document.createElement('span');
+    wrap.className = 'demo-options__letters';
+    wrap.setAttribute('aria-hidden', 'true');
+    Array.from(label).forEach(function (ch, i) {
+      var el = document.createElement('span');
+      if (ch === ' ') {
+        el.className = 'demo-options__space';
+        el.innerHTML = '&nbsp;';
+      } else {
+        el.className = 'demo-options__char';
+        el.textContent = ch;
+        el.style.color = colors[i % colors.length];
+        el.style.setProperty('--i', String(i));
+      }
+      wrap.appendChild(el);
+    });
+    link.appendChild(wrap);
+  });
+})();
+</script>
+{% endblock %}

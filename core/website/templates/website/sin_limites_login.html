@@ -2,43 +2,44 @@
 {% load static %}
 {% load widget_tweaks %}
 {% block title %}Sin limites · Ingresar{% endblock %}
+{% block extra_head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+{% endblock %}
 {% block content %}
-<section class="registro-split">
-  <aside class="registro-split__media">
-    <img
-      src="{% static 'img/website/niño.jpg' %}"
-      alt="Sin limites"
-      class="registro-split__img"
-      onerror="this.onerror=null;this.src='{% static 'img/website/nino.jpg' %}';"
-    >
-    <div class="registro-split__caption">
-      <strong>Sin limites</strong>
-      <span>jean piaget IA</span>
+<section class="account-splash account-splash--page" aria-labelledby="login-title">
+  <div class="account-splash__bg" aria-hidden="true"></div>
+  <div class="account-splash__modal account-splash__modal--login">
+    <div class="account-splash__figure">
+      <img
+        src="{% static 'img/website/niño.jpg' %}"
+        alt="Sin limites"
+        class="account-splash__img"
+        onerror="this.onerror=null;this.src='{% static 'img/website/nino.jpg' %}';"
+      >
     </div>
-  </aside>
-
-  <div class="registro-split__panel">
-    <h2 class="login-title">Sin limites</h2>
-    <p class="login-hint">Ingresa con tu usuario y contraseña</p>
-    <div class="registro-split__form">
-      <form method="post" action="">
+    <div class="account-splash__actions account-splash__actions--login">
+      <h2 class="account-splash__title" id="login-title">Usuario y contraseña</h2>
+      <p class="account-splash__hint">Ingresa con tu cuenta de Sin limites</p>
+      <form method="post" action="" class="account-login-form">
         {% csrf_token %}
         {% for field in form %}
-          <label class="field-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
-          {{ field }}
-          {% if field.errors %}<div class="field-error">{{ field.errors }}</div>{% endif %}
+          <label class="account-login-form__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field|add_class:"account-login-form__input" }}
+          {% if field.errors %}<div class="account-login-form__error">{{ field.errors }}</div>{% endif %}
         {% endfor %}
         {% if form.non_field_errors %}
-          <div class="field-error">{{ form.non_field_errors }}</div>
+          <div class="account-login-form__error">{{ form.non_field_errors }}</div>
         {% endif %}
-        <button type="submit">Entrar</button>
+        <button type="submit" class="account-splash__btn account-splash__btn--account">Entrar</button>
       </form>
-      <p class="form-footer">
+      <p class="account-login-form__footer">
         ¿No tienes cuenta?
         <a href="{% url 'sin_limites_registro' %}">Crear cuenta</a>
       </p>
-      <p class="form-footer">
-        <a href="{% url 'home' %}">Volver al inicio</a>
+      <p class="account-login-form__footer">
+        <a href="/?portada=1">Volver al inicio</a>
       </p>
     </div>
   </div>

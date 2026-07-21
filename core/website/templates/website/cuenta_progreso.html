@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Progreso · jean piaget IA{% endblock %}
+{% block content %}
+<section class="container py-4 cuenta-page">
+  <header class="cuenta-page__head">
+    <span class="cuenta-page__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 19h16v1.5H4V19Zm2.5-2.5v-5H8v5H6.5Zm4.25 0v-9h1.5v9h-1.5Zm4.25 0V7H17v9.5h-1.5Z"/></svg>
+    </span>
+    <div>
+      <h1>Progreso</h1>
+      <p class="lead">Tu avance en cada materia{% if inscrito %}, {{ inscrito.nombres }}{% endif %}.</p>
+    </div>
+  </header>
+  <div class="cuenta-progress-bars">
+    <div class="cuenta-progress-bars__row">
+      <span>Matemáticas</span>
+      <div class="cuenta-progress-bars__track"><i style="width:20%"></i></div>
+    </div>
+    <div class="cuenta-progress-bars__row">
+      <span>Lenguaje</span>
+      <div class="cuenta-progress-bars__track"><i style="width:10%"></i></div>
+    </div>
+    <div class="cuenta-progress-bars__row">
+      <span>Arte</span>
+      <div class="cuenta-progress-bars__track"><i style="width:5%"></i></div>
+    </div>
+  </div>
+  <p><a class="btn" href="{% url 'sin_limites' %}">Volver a Sin limites</a></p>
+</section>
+{% endblock %}

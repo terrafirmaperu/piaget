@@ -5,6 +5,11 @@ from django.urls import include, path
 from config import settings
 from core.dashboard.views import DashboardView, InscritosListView
 from core.website.views import (
+    CuentaLogrosView,
+    CuentaOpcionesView,
+    CuentaProgresoView,
+    DemoMateriaView,
+    DemoOpcionesView,
     HomeView,
     RegistroPaso1View,
     RegistroPaso2View,
@@ -15,6 +20,12 @@ from core.website.views import (
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
+    # Demo invitado: opciones de aprendizaje
+    path('demo/', DemoOpcionesView.as_view(), name='demo_opciones'),
+    path('demo/<slug:slug>/', DemoMateriaView.as_view(), name='demo_materia'),
+    path('cuenta/logros/', CuentaLogrosView.as_view(), name='cuenta_logros'),
+    path('cuenta/progreso/', CuentaProgresoView.as_view(), name='cuenta_progreso'),
+    path('cuenta/opciones/', CuentaOpcionesView.as_view(), name='cuenta_opciones'),
     path('sin-limites/', SinLimitesView.as_view(), name='sin_limites'),
     path('sin-limites/registro/', RegistroPaso1View.as_view(), name='sin_limites_registro'),
     path('sin-limites/registro/padres/', RegistroPaso2View.as_view(), name='sin_limites_registro_padres'),

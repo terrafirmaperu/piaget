@@ -3,3 +3,4 @@ django-crum==0.7.5
 django-widget-tweaks==1.4.5
 gunicorn==21.2.0
 whitenoise==6.6.0
+setuptools>=69.0.0

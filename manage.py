@@ -6,6 +6,13 @@ import sys
 def _migrar():
     base = os.path.dirname(os.path.abspath(__file__))
     os.chdir(base)
+    try:
+        from core.website.ensure_assets import ensure_alumna_image
+        path = ensure_alumna_image(base)
+        if path:
+            print('Imagen alumna:', path)
+    except Exception as exc:
+        print('Aviso imagen alumna:', exc)
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
     import django
     django.setup()
@@ -17,6 +24,10 @@ def _migrar():
         call_command('ensure_neo', verbosity=1)
     except Exception as exc:
         print('Aviso ensure_neo:', exc)
+    try:
+        call_command('ensure_alumno', verbosity=1)
+    except Exception as exc:
+        print('Aviso ensure_alumno:', exc)
     print('=== Base lista ===')
 
 
