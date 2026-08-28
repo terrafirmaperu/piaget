@@ -1,0 +1,19 @@
+ACCOUNT_HTTP 200
+ACCOUNT terrafirmaperu@gmail.com status=active droplet_limit=10
+DROPLETS count=1
+DROPLET id=589645017 name=terrafirma2.0 status=active region=nyc1 size=s-1vcpu-512mb-10gb ip=161.35.107.118
+SSH_KEYS count=0
+OLD_DROPLET_NOT_IN_ACCOUNT ip=67.205.138.3
+CREATING_DROPLET name=piaget region=nyc3 size=s-1vcpu-1gb
+CREATE_HTTP 202
+CREATED_ID 595793894
+WAIT 1 status=new ip=
+WAIT 2 status=new ip=
+WAIT 3 status=new ip=
+WAIT 4 status=new ip=
+WAIT 5 status=active ip=159.203.166.184
+TARGET_IP 159.203.166.184
+CREATED yes
+WAITING_CLOUD_INIT 45s
+UPDATED_ENV_DEPLOY
+DONE
