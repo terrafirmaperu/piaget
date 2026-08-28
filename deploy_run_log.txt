@@ -1,38 +1,508 @@
-Empaquetando proyecto -> C:\Users\ASUS\AppData\Local\Temp\tmpkcpndtb9.tar.gz
+Empaquetando proyecto -> C:\Users\ASUS\AppData\Local\Temp\tmp2strug5o.tar.gz
 Conectando a root@67.205.138.3 ...
 >> export DEBIAN_FRONTEND=noninteractive; apt-get update -y
-0% [Working]0% [Working]0% [Working]0% [Working]0% [Working]0% [Working]0% [Working]0% [Working]0% [Working]0% [Working]0% [Working]0% [Working]0% [Working]            Hit:1 http://mirrors.digitalocean.com/ubuntu noble InRelease
-0% [Connected to repos-droplet.digitalocean.com (104.19.173.68)] [Waiting for h                                                                               Hit:2 http://mirrors.digitalocean.com/ubuntu noble-updates InRelease
-                                                                               Hit:3 http://mirrors.digitalocean.com/ubuntu noble-backports InRelease
-                                                                               0% [Waiting for headers] [Connecting to security.ubuntu.com (185.125.190.82)]                                                                             Hit:4 https://repos-droplet.digitalocean.com/apt/droplet-agent main InRelease
-                                                                             0% [Waiting for headers]                        Get:5 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
-0% [5 InRelease 14.2 kB/126 kB 11%]0% [5 InRelease 43.1 kB/126 kB 34%]0% [5 InRelease 126 kB/126 kB 100%]                                   0% [Working]0% [Working]0% [Working]24% [Working]             Get:6 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [861 kB]
-24% [6 Packages 2657 B/861 kB 0%]                                 56% [Working]56% [6 Packages store 0 B] [Waiting for headers]                                                Get:7 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1180 kB]
-57% [6 Packages store 0 B] [7 Packages 15.7 kB/1180 kB 1%]                                                          100% [6 Packages store 0 B]                           100% [Working]100% [7 Packages store 0 B]                           100% [Working]              Fetched 2167 kB in 8s (266 kB/s)
-Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 3%Reading package lists... 3%Reading package lists... 5%Reading package lists... 5%Reading package lists... 27%Reading package lists... 44%Reading package lists... 44%Reading package lists... 51%Reading package lists... 62%Reading package lists... 62%Reading package lists... 62%Reading package lists... 62%Reading package lists... 62%Reading package lists... 62%Reading package lists... 63%Reading package lists... 63%Reading package lists... 63%Reading package lists... 63%Reading package lists... 66%Reading package lists... 66%Reading package lists... 68%Reading package lists... 68%Reading package lists... 74%Reading package lists... 74%Reading package lists... 75%Reading package lists... 75%Reading package lists... 80%Reading package lists... 80%Reading package lists... 82%Reading package lists... 82%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 86%Reading package lists... 86%Reading package lists... 87%Reading package lists... 87%Reading package lists... 88%Reading package lists... 91%Reading package lists... 91%Reading package lists... 92%Reading package lists... 92%Reading package lists... 96%Reading package lists... 96%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+0% [Working]
+            
+Hit:1 http://mirrors.digitalocean.com/ubuntu noble InRelease
+
+
+0% [Connected to repos-droplet.digitalocean.com (104.19.173.68)] [Waiting for h
+                                                                               
+Hit:2 http://mirrors.digitalocean.com/ubuntu noble-updates InRelease
+
+
+                                                                               
+Hit:3 http://mirrors.digitalocean.com/ubuntu noble-backports InRelease
+
+
+0% [Connected to repos-droplet.digitalocean.com (104.19.173.68)] [Connecting to
+                                                                               
+Hit:4 https://repos-droplet.digitalocean.com/apt/droplet-agent main InRelease
+
+
+                                                                               
+0% [Waiting for headers]
+                        
+Hit:5 http://security.ubuntu.com/ubuntu noble-security InRelease
+
+
+                        
+0% [Working]
+0% [Working]
+0% [Working]
+0% [Working]
+0% [Working]
+20% [Working]
+             
+
+Reading package lists... 0%
+
+Reading package lists... 0%
+
+Reading package lists... 0%
+
+Reading package lists... 0%
+
+Reading package lists... 0%
+
+Reading package lists... 3%
+
+Reading package lists... 3%
+
+Reading package lists... 5%
+
+Reading package lists... 5%
+
+Reading package lists... 20%
+
+Reading package lists... 39%
+
+Reading package lists... 44%
+
+Reading package lists... 44%
+
+Reading package lists... 62%
+
+Reading package lists... 62%
+
+Reading package lists... 62%
+
+Reading package lists... 62%
+
+Reading package lists... 62%
+
+Reading package lists... 62%
+
+Reading package lists... 63%
+
+Reading package lists... 63%
+
+Reading package lists... 63%
+
+Reading package lists... 63%
+
+Reading package lists... 66%
+
+Reading package lists... 66%
+
+Reading package lists... 68%
+
+Reading package lists... 68%
+
+Reading package lists... 72%
+
+Reading package lists... 74%
+
+Reading package lists... 74%
+
+Reading package lists... 75%
+
+Reading package lists... 75%
+
+Reading package lists... 80%
+
+Reading package lists... 80%
+
+Reading package lists... 82%
+
+Reading package lists... 82%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 83%
+
+Reading package lists... 86%
+
+Reading package lists... 86%
+
+Reading package lists... 87%
+
+Reading package lists... 87%
+
+Reading package lists... 91%
+
+Reading package lists... 91%
+
+Reading package lists... 92%
+
+Reading package lists... 92%
+
+Reading package lists... 96%
+
+Reading package lists... 96%
+
+Reading package lists... 99%
+
+Reading package lists... 99%
+
+Reading package lists... 99%
+
+Reading package lists... 99%
+
+Reading package lists... 99%
+
+Reading package lists... 99%
+
+Reading package lists... Done
 >> export DEBIAN_FRONTEND=noninteractive; apt-get install -y python3 python3-venv python3-pip python3-setuptools nginx git curl
-=====================                        ]Scanning processes... [=================================                       ]Scanning processes... [==================================                      ]Scanning processes... [==================================                      ]Scanning processes... [===================================                     ]Scanning processes... [===================================                     ]Scanning processes... [====================================                    ]Scanning processes... [====================================                    ]Scanning processes... [=====================================                   ]Scanning processes... [=====================================                   ]Scanning processes... [======================================                  ]Scanning processes... [======================================                  ]Scanning processes... [=======================================                 ]Scanning processes... [=======================================                 ]Scanning processes... [========================================                ]Scanning processes... [========================================                ]Scanning processes... [=========================================               ]Scanning processes... [=========================================               ]Scanning processes... [==========================================              ]Scanning processes... [==========================================              ]Scanning processes... [===========================================             ]Scanning processes... [===========================================             ]Scanning processes... [============================================            ]Scanning processes... [=============================================           ]Scanning processes... [=============================================           ]Scanning processes... [==============================================          ]Scanning processes... [==============================================          ]Scanning processes... [===============================================         ]Scanning processes... [===============================================         ]Scanning processes... [================================================        ]Scanning processes... [================================================        ]Scanning processes... [=================================================       ]Scanning processes... [=================================================       ]Scanning processes... [==================================================      ]Scanning processes... [==================================================      ]Scanning processes... [===================================================     ]Scanning processes... [===================================================     ]Scanning processes... [====================================================    ]Scanning processes... [====================================================    ]Scanning processes... [=====================================================   ]Scanning processes... [=====================================================   ]Scanning processes... [======================================================  ]Scanning processes... [======================================================  ]Scanning processes... [======================================================= ]Scanning processes... [========================================================]Scanning processes...                                                           
-Scanning candidates... [                                                       ]Scanning candidates... [=======================================================]Scanning candidates...                                                          
-Scanning linux images... [                                                     ]Scanning linux images... [=============                                        ]Scanning linux images... [==========================                           ]Scanning linux images... [=======================================              ]Scanning linux images... [=====================================================]Scanning linux images...                                                        
-
-Pending kernel upgrade!
-Running kernel version:
-  6.8.0-124-generic
-Diagnostics:
-  The currently running kernel version is not the expected kernel version
-6.8.0-136-generic.
-
-Restarting the system to load the new kernel will not be handled automatically,
-so you should consider rebooting.
-
-Restarting services...
-
-Service restarts being deferred:
- systemctl restart unattended-upgrades.service
-
-No containers need to be restarted.
-
-No user sessions are running outdated binaries.
-
-No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Reading package lists... 0%
+
+Reading package lists... 100%
+
+Reading package lists... Done
+
+
+
+Building dependency tree... 0%
+
+Building dependency tree... 0%
+
+Building dependency tree... 50%
+
+Building dependency tree... 50%
+
+Building dependency tree... Done
+
+
+
+Reading state information... 0% 
+
+Reading state information... 0%
+
+Reading state information... Done
+
+
+python3 is already the newest version (3.12.3-0ubuntu2.1).
+
+python3-venv is already the newest version (3.12.3-0ubuntu2.1).
+
+python3-pip is already the newest version (24.0+dfsg-1ubuntu1.3).
+
+python3-setuptools is already the newest version (68.1.2-2ubuntu1.2).
+
+nginx is already the newest version (1.24.0-2ubuntu7.15).
+
+git is already the newest version (1:2.43.0-1ubuntu7.3).
+
+curl is already the newest version (8.5.0-2ubuntu10.11).
+
+0 upgraded, 0 newly installed, 0 to remove and 15 not upgraded.
 Subiendo paquete...
+>> rm -rf /var/www/piaget/app && mkdir -p /var/www/piaget/app
+>> tar -xzf /tmp/piaget_app.tar.gz -C /var/www/piaget/app
+>> rm -f /tmp/piaget_app.tar.gz
+Escrito /var/www/piaget/app/.env
+>> mkdir -p /var/www/piaget/app/logs /var/www/piaget/app/media /var/www/piaget/app/db
+>> chmod +x /var/www/piaget/app/deploy/digitalocean/scripts/*.sh
+>> bash /var/www/piaget/app/deploy/digitalocean/scripts/bootstrap_droplet.sh
+ents.txt (line 3))
+
+  Downloading django_widget_tweaks-1.4.5-py2.py3-none-any.whl.metadata (11 kB)
+
+Collecting gunicorn==21.2.0 (from -r /var/www/piaget/app/requirements.txt (line 4))
+
+  Downloading gunicorn-21.2.0-py3-none-any.whl.metadata (4.1 kB)
+
+Collecting whitenoise==6.6.0 (from -r /var/www/piaget/app/requirements.txt (line 5))
+
+  Downloading whitenoise-6.6.0-py3-none-any.whl.metadata (3.7 kB)
+
+Requirement already satisfied: setuptools>=69.0.0 in /var/www/piaget/app/venv/lib/python3.12/site-packages (from -r /var/www/piaget/app/requirements.txt (line 6)) (83.0.0)
+
+Collecting asgiref<4,>=3.3.2 (from Django==3.2.2->-r /var/www/piaget/app/requirements.txt (line 1))
+
+  Downloading asgiref-3.12.1-py3-none-any.whl.metadata (9.4 kB)
+
+Collecting pytz (from Django==3.2.2->-r /var/www/piaget/app/requirements.txt (line 1))
+
+  Downloading pytz-2026.2-py2.py3-none-any.whl.metadata (22 kB)
+
+Collecting sqlparse>=0.2.2 (from Django==3.2.2->-r /var/www/piaget/app/requirements.txt (line 1))
+
+  Downloading sqlparse-0.5.5-py3-none-any.whl.metadata (4.7 kB)
+
+Requirement already satisfied: packaging in /var/www/piaget/app/venv/lib/python3.12/site-packages (from gunicorn==21.2.0->-r /var/www/piaget/app/requirements.txt (line 4)) (26.2)
+
+Downloading Django-3.2.2-py3-none-any.whl (7.9 MB)
+
+[?25l   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/7.9 MB[0m [31m?[0m eta [36m-:--:--[0m
+[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m7.9/7.9 MB[0m [31m77.9 MB/s[0m  [33m0:00:00[0m
+
+[?25hDownloading django_crum-0.7.5-py2.py3-none-any.whl (3.7 kB)
+
+Downloading django_widget_tweaks-1.4.5-py2.py3-none-any.whl (11 kB)
+
+Downloading gunicorn-21.2.0-py3-none-any.whl (80 kB)
+
+Downloading whitenoise-6.6.0-py3-none-any.whl (19 kB)
+
+Downloading asgiref-3.12.1-py3-none-any.whl (25 kB)
+
+Downloading sqlparse-0.5.5-py3-none-any.whl (46 kB)
+
+Downloading pytz-2026.2-py2.py3-none-any.whl (510 kB)
+
+Installing collected packages: pytz, django-widget-tweaks, whitenoise, sqlparse, gunicorn, asgiref, Django, django-crum
+
+[?25l
+[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0/8[0m [pytz]
+[2K   [91m━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3/8[0m [sqlparse]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━━━━━━━━━━━[0m [32m4/8[0m [gunicorn]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[90m╺[0m[90m━━━━━━━━━[0m [32m6/8[0m [Django]
+[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m8/8[0m [django-crum]
+
+[?25h
+[1A[2KSuccessfully installed Django-3.2.2 asgiref-3.12.1 django-crum-0.7.5 django-widget-tweaks-1.4.5 gunicorn-21.2.0 pytz-2026.2 sqlparse-0.5.5 whitenoise-6.6.0
+
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+Bootstrap listo. Configure .env y ejecute deploy.sh
+>> rm -f /etc/nginx/sites-enabled/default
+>> ln -sfn /etc/nginx/sites-available/piaget /etc/nginx/sites-enabled/piaget
+>> nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+>> chown -R www-data:www-data /var/www/piaget
+>> bash -lc 'cd /var/www/piaget/app && if [ ! -d venv ]; then sudo -u www-data python3 -m venv venv; fi && chown -R www-data:www-data /var/www/piaget/app'
+>> sudo -u www-data bash -lc 'cd /var/www/piaget/app && source venv/bin/activate && set -a && source .env && set +a && pip install --upgrade pip setuptools wheel && pip install -r requirements.txt && python manage.py migrate --noinput && python manage.py collectstatic --noinput && python manage.py ensure_neo && python manage.py ensure_alumno || true'
+[33mWARNING: The directory '/var/www/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.[0m[33m
+
+[0mRequirement already satisfied: pip in ./venv/lib/python3.12/site-packages (26.1.2)
+
+Requirement already satisfied: setuptools in ./venv/lib/python3.12/site-packages (83.0.0)
+
+Requirement already satisfied: wheel in ./venv/lib/python3.12/site-packages (0.47.0)
+
+Requirement already satisfied: packaging>=24.0 in ./venv/lib/python3.12/site-packages (from wheel) (26.2)
+
+[33mWARNING: The directory '/var/www/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.[0m[33m
+
+[0mRequirement already satisfied: Django==3.2.2 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (3.2.2)
+
+Requirement already satisfied: django-crum==0.7.5 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (0.7.5)
+
+Requirement already satisfied: django-widget-tweaks==1.4.5 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (1.4.5)
+
+Requirement already satisfied: gunicorn==21.2.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (21.2.0)
+
+Requirement already satisfied: whitenoise==6.6.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (6.6.0)
+
+Requirement already satisfied: setuptools>=69.0.0 in ./venv/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (83.0.0)
+
+Requirement already satisfied: asgiref<4,>=3.3.2 in ./venv/lib/python3.12/site-packages (from Django==3.2.2->-r requirements.txt (line 1)) (3.12.1)
+
+Requirement already satisfied: pytz in ./venv/lib/python3.12/site-packages (from Django==3.2.2->-r requirements.txt (line 1)) (2026.2)
+
+Requirement already satisfied: sqlparse>=0.2.2 in ./venv/lib/python3.12/site-packages (from Django==3.2.2->-r requirements.txt (line 1)) (0.5.5)
+
+Requirement already satisfied: packaging in ./venv/lib/python3.12/site-packages (from gunicorn==21.2.0->-r requirements.txt (line 4)) (26.2)
+
+[36;1mOperations to perform:[0m
+
+[1m  Apply all migrations: [0madmin, auth, contenttypes, sessions, user
+
+[36;1mRunning migrations:[0m
+
+  Applying contenttypes.0001_initial...[32;1m OK[0m
+
+  Applying contenttypes.0002_remove_content_type_name...[32;1m OK[0m
+
+  Applying auth.0001_initial...[32;1m OK[0m
+
+  Applying auth.0002_alter_permission_name_max_length...[32;1m OK[0m
+
+  Applying auth.0003_alter_user_email_max_length...[32;1m OK[0m
+
+  Applying auth.0004_alter_user_username_opts...[32;1m OK[0m
+
+  Applying auth.0005_alter_user_last_login_null...[32;1m OK[0m
+
+  Applying auth.0006_require_contenttypes_0002...[32;1m OK[0m
+
+  Applying auth.0007_alter_validators_add_error_messages...[32;1m OK[0m
+
+  Applying auth.0008_alter_user_username_max_length...[32;1m OK[0m
+
+  Applying auth.0009_alter_user_last_name_max_length...[32;1m OK[0m
+
+  Applying auth.0010_alter_group_name_max_length...[32;1m OK[0m
+
+  Applying auth.0011_update_proxy_permissions...[32;1m OK[0m
+
+  Applying auth.0012_alter_user_first_name_max_length...[32;1m OK[0m
+
+  Applying user.0001_initial...[32;1m OK[0m
+
+  Applying admin.0001_initial...[32;1m OK[0m
+
+  Applying admin.0002_logentry_remove_auto_add...[32;1m OK[0m
+
+  Applying admin.0003_logentry_add_action_flag_choices...[32;1m OK[0m
+
+  Applying sessions.0001_initial...[32;1m OK[0m
+
+  Applying user.0002_inscrito...[32;1m OK[0m
+
+
+
+140 static files copied to '/var/www/piaget/app/staticfiles', 127 post-processed.
+
+[32;1mCreado: usuario Neo (superusuario / panel de control)[0m
+
+[32;1mCreado: usuario alumno / Alumno123 (inscrito Sin limites)[0m
+>> systemctl daemon-reload
+>> systemctl enable piaget
+>> systemctl restart piaget
+>> systemctl reload nginx
+>> systemctl --no-pager status piaget | head -n 20
+● piaget.service - jean piaget IA gunicorn
+
+     Loaded: loaded (/etc/systemd/system/piaget.service; enabled; preset: enabled)
+
+     Active: active (running) since Tue 2026-07-21 17:18:20 UTC; 3s ago
+
+   Main PID: 73203 (gunicorn)
+
+      Tasks: 3 (limit: 504)
+
+     Memory: 77.5M (peak: 77.6M)
+
+        CPU: 1.575s
+
+     CGroup: /system.slice/piaget.service
+
+             ├─73203 /var/www/piaget/app/venv/bin/python3 /var/www/piaget/app/venv/bin/gunicorn --workers 2 --bind unix:/run/piaget/gunicorn.sock --timeout 120 --access-logfile /var/www/piaget/app/logs/gunicorn-access.log --error-logfile /var/www/piaget/app/logs/gunicorn-error.log config.wsgi:application
+
+             ├─73204 /var/www/piaget/app/venv/bin/python3 /var/www/piaget/app/venv/bin/gunicorn --workers 2 --bind unix:/run/piaget/gunicorn.sock --timeout 120 --access-logfile /var/www/piaget/app/logs/gunicorn-access.log --error-logfile /var/www/piaget/app/logs/gunicorn-error.log config.wsgi:application
+
+             └─73205 /var/www/piaget/app/venv/bin/python3 /var/www/piaget/app/venv/bin/gunicorn --workers 2 --bind unix:/run/piaget/gunicorn.sock --timeout 120 --access-logfile /var/www/piaget/app/logs/gunicorn-access.log --error-logfile /var/www/piaget/app/logs/gunicorn-error.log config.wsgi:application
+
+
+
+Jul 21 17:18:20 piaget systemd[1]: Started piaget.service - jean piaget IA gunicorn.
+>> curl -sI http://127.0.0.1/ | head -n 12
+HTTP/1.1 200 OK
+
+
+Server: nginx/1.24.0 (Ubuntu)
+
+
+Date: Tue, 21 Jul 2026 17:18:25 GMT
+
+
+Content-Type: text/html; charset=utf-8
+
+
+Content-Length: 6981
+
+
+Connection: keep-alive
+
+
+X-Frame-Options: DENY
+
+
+Vary: Cookie
+
+
+X-Content-Type-Options: nosniff
+
+
+Referrer-Policy: same-origin
+>> curl -s http://127.0.0.1/ | head -n 20
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Inicio · jean piaget IA</title>
+
+  
+
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <div class="header-left">
+
+        <a class="brand" href="/?portada=1">
+
+          <img src="/static/img/logo-jean-piaget-ia.png" alt="" class="brand-logo" onerror="this.style.display='none'">
+
+DEPLOY OK
+Web: http://67.205.138.3/
+Login control: http://67.205.138.3/login/  (Neo)
